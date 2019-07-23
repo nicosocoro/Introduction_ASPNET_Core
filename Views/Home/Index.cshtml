@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+    //reference author
+    NET_Core_Introduction.Models.Entities.eAuthor author = ViewBag.Author;
+
+    //reference blogs
+    List<NET_Core_Introduction.Models.Entities.eBlog> lst_blogs = ViewBag.Blogs;
+    int int_blog_count = lst_blogs.Count;
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/Home/HomeStyles.css" />
+
+<div class="row text-center">
+    <h3>Author's blogs</h3>
+</div>
+
+@using (Html.BeginForm("AuthorDetail", "Home", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-12">
+            @Html.DropDownList("ddlAuthors", @ViewBag.lst_authors, null, new { @class = "form-control" })
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <input type="submit" id="btnSearchAuthorBlogs" class="btn btn-success btn-block" value="Get blogs" />
+        </div>
+    </div>
+
+    <hr />
+    <h3 class="color-blue">Author's profile</h3>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            Author: @Html.Label(author.CompleteName)
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            Age: @Html.Label(author.Age.ToString())
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            Number of Blogs: @Html.Label(int_blog_count.ToString())
+        </div>
+    </div>
+
+    <hr />
+
+    <h3 class="color-blue">Blogs</h3>
+
+    //Reminds pending to hide these headers when screen get in small size
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12">
+            <h4>Title</h4>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-12">
+            <h4>Link</h4>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12">
+            <h4>Tags</h4>
+        </div>
+    </div>
+
+    @foreach (NET_Core_Introduction.Models.Entities.eBlog blog in lst_blogs)
+    {
+        <hr class="hr-margin" />
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                @blog.Title
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-8">
+                <a href="@blog.Link">@blog.Link</a>
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4" style="color: cadetblue;">
+                @{
+                    string str_tag = string.Empty;
+
+                    foreach (string tag in blog.Tags)
+                    {
+                        str_tag += "#" + tag + " ";
+                    }
+                }
+
+                @str_tag.Trim()
+            </div>
+        </div>
+    }
+}
