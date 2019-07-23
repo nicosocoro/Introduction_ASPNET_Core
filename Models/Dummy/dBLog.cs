@@ -22,7 +22,7 @@ namespace NET_Core_Introduction.Models.Dummy
                 return new List<eBlog>
                 {
                     new eBlog(1, "How to make your first ASP NET Core Application", "", new List<string>{ "microsoft", "asp", "net" }, auth1),
-                    new eBlog(2, "Little introduction example of ASP NET Core web site.", "", new List<string>{ "mvc", "asp", "core", "net" }, auth1),
+                    new eBlog(2, "Little introduction example of ASP NET Core web site.", "https://github.com/nicosocoro/Introduction_ASPNET_Core", new List<string>{ "mvc", "asp", "core", "net", "github" }, auth1),
                     new eBlog(3, "Introduction to Docker containers", "https://www.docker.com/resources/what-container", new List<string>{ "docker", "container"}, auth2),
                     new eBlog(4, "Why choose Docker?", "https://www.docker.com/why-docker", new List<string>{ "easy", "docker", "lightweight" }, auth2),
                     new eBlog(5, "What's Entity Framework?", "https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ef/overview", new List<string>{ "entity", "orm", "queries" }, auth3),
