@@ -50,10 +50,13 @@
         <div class="col-lg-4 col-md-4 col-sm-12">
             <h4>Title</h4>
         </div>
-        <div class="col-lg-5 col-md-5 col-sm-12">
+        <div class="col-lg-2 col-md-2 col-sm-12">
+            <h4>Publicated</h4>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12">
             <h4>Link</h4>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="col-lg-2 col-md-2 col-sm-12">
             <h4>Tags</h4>
         </div>
     </div>
@@ -65,11 +68,14 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 @blog.Title
             </div>
-            <div class="col-lg-5 col-md-5 col-sm-8">
+            <div class="col-lg-2 col-md-2 col-sm-12">
+                @blog.PublicationDate
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
                 <a href="@blog.Link">@blog.Link</a>
 
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-4" style="color: cadetblue;">
+            <div class="col-lg-2 col-md-2 col-sm-12" style="color: cadetblue;">
                 @{
                     string str_tag = string.Empty;
 
